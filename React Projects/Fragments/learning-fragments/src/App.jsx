@@ -2,6 +2,7 @@ import React from "react";
 import FoodItems from "./components/FoodItems";
 import ErrorMessage from "./components/ErrorMessage";
 import "./App.css";
+import Container from "./components/Container";
 function App() {
   //let foodItems =[]
   //if-else-statement-->//if (foodItems.length === 0) {
@@ -11,11 +12,17 @@ function App() {
   let foodItems = ["Daal", "Isolate Protien", "cretien", "Fish Oil", "Milk"];
 
   return (
-    <React.Fragment>
-      <h1 className="food-heading">Healthy Items</h1>
-      <FoodItems items={foodItems}></FoodItems>
-      <ErrorMessage items={foodItems}></ErrorMessage>
-    </React.Fragment>
+    <>
+      <Container>
+        <h1 className="food-heading">Healthy Items</h1>
+        <FoodItems items={foodItems}></FoodItems>
+        <ErrorMessage items={foodItems}></ErrorMessage>
+      </Container>
+
+      <Container>
+        <p>Above lislted protiens is Good For muscle gain and health</p>
+      </Container>
+    </>
   );
 }
 

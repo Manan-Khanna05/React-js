@@ -1,8 +1,8 @@
-import styles from "./Item.module.css";
 const Item = ({ item }) => {
   return (
-    <li
-        span className="mk-span">{item}</span> </li >
+    <li className="list-group-item">
+      <span className="mk-span">{item}</span>
+    </li>
   );
 };
 
