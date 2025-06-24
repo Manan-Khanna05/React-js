@@ -1,0 +1,9 @@
+.calculator {
+  border: none;
+  width: 270px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #f8ffae 0%, #43c6ac 100%);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+  padding: 24px 12px 18px 12px;
+  margin: 30px auto;
+}

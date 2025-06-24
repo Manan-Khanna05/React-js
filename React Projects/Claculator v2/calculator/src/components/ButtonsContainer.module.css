@@ -1,0 +1,40 @@
+.buttonsContainer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  background: rgba(30, 30, 30, 0.12);
+  border-radius: 16px;
+  padding: 12px 0;
+  box-shadow: 0 2px 16px 0 rgba(30, 30, 30, 0.1);
+}
+
+.button {
+  width: 55px;
+  height: 55px;
+  margin: 5px;
+  border: none;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #232526 0%, #414345 100%);
+  color: #f1f1f1;
+  font-size: 1.2em;
+  font-weight: bold;
+  transition: box-shadow 0.2s, background 0.3s, border 0.3s;
+  box-shadow: 0 2px 8px rgba(30, 30, 30, 0.18);
+  outline: none;
+}
+
+.button:hover {
+  box-shadow: 0 0 16px #232526, 0 4px 16px rgba(30, 30, 30, 0.16);
+  background: linear-gradient(135deg, #414345 0%, #232526 100%);
+  color: #fff;
+}
+
+.button:active {
+  box-shadow: 0 0 8px #232526, 0 2px 8px rgba(30, 30, 30, 0.18);
+  background: #232526;
+}
+
+.button span {
+  position: relative;
+  z-index: 1;
+}

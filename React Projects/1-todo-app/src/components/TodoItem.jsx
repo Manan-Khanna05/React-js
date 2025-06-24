@@ -1,21 +1,49 @@
-function TodoItem() {
-    let TodoItem = 'Buy Milk';
-    let ItemDate = '04/11/1947';
+import { useState } from "react";
+import AnimatedContainer from "./AnimatedContainer";
+import ConfirmDialog from "./ConfirmDialog";
+import { MdDeleteForever } from "react-icons/md";
 
-    return <div class="container">
-    <div class="row">
-    <div class="col-6">
-      {TodoItem} 
-    </div>
-      <div class="col-4">
-        {ItemDate}
-      </div>
-      <div class="col-2">
-      <button type="button" class="btn btn-danger mk-button">Delete</button>
-      </div>
-    </div>
-  </div>
+function TodoItem({ item, date, onDelete }) {
+  const [show, setShow] = useState(true);
+  const [showConfirm, setShowConfirm] = useState(false);
 
+  const handleDelete = () => {
+    setShowConfirm(true);
+  };
+  const handleConfirm = () => {
+    setShowConfirm(false);
+    setShow(false);
+  };
+  const handleCancel = () => {
+    setShowConfirm(false);
+  };
+
+  return (
+    <>
+      <AnimatedContainer show={show} onFadeOutEnd={onDelete}>
+        <div className="container">
+          <div className="row">
+            <div className="col-6">{item}</div>
+            <div className="col-4">{date}</div>
+            <div className="col-2">
+              <button
+                type="button"
+                className="btn btn-danger mk-button"
+                onClick={handleDelete}>
+                <MdDeleteForever size={24} />
+              </button>
+            </div>
+          </div>
+        </div>
+      </AnimatedContainer>
+      <ConfirmDialog
+        open={showConfirm}
+        message="Are you sure you want to delete this item?"
+        onConfirm={handleConfirm}
+        onCancel={handleCancel}
+      />
+    </>
+  );
 }
 
 export default TodoItem;
