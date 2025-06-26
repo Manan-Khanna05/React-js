@@ -1,0 +1,93 @@
+.calendar-flip-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 24px 0 12px 0;
+}
+.calendar-flip {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 24px #0002, 0 1.5px 0 #c00 inset;
+  width: 110px;
+  padding-bottom: 8px;
+  position: relative;
+}
+.calendar-header {
+  background: #c00;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1rem;
+  text-align: center;
+  border-radius: 8px 8px 0 0;
+  padding: 6px 0 4px 0;
+  letter-spacing: 1px;
+}
+.calendar-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70px;
+  position: relative;
+}
+.calendar-page {
+  width: 70px;
+  height: 70px;
+  position: relative;
+  perspective: 600px;
+  z-index: 1;
+}
+.calendar-page-front,
+.calendar-page-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background: #fff;
+  color: #222;
+  font-size: 2.7rem;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px #0001;
+  backface-visibility: hidden;
+  transition: box-shadow 0.3s;
+}
+.calendar-page-front {
+  z-index: 2;
+  background: #fff;
+  box-shadow: 0 2px 8px #0002;
+  transform-origin: top center;
+}
+.calendar-page-back {
+  z-index: 1;
+  background: #fff;
+  box-shadow: 0 2px 8px #0002;
+  transform: rotateX(180deg);
+  transform-origin: top center;
+}
+.calendar-page.flipping .calendar-page-front {
+  animation: calendarFlipFront 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.calendar-page.flipping .calendar-page-back {
+  animation: calendarFlipBack 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+}
+@keyframes calendarFlipFront {
+  0% {
+    transform: rotateX(0);
+  }
+  100% {
+    transform: rotateX(-180deg);
+  }
+}
+@keyframes calendarFlipBack {
+  0% {
+    transform: rotateX(180deg);
+  }
+  100% {
+    transform: rotateX(0);
+  }
+}

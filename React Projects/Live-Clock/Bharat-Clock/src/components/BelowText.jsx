@@ -1,8 +1,9 @@
 function BelowText() {
-    return <h2>
-        This is the clock That Shows the Time in Bharat at all Times
+  return (
+    <h2 className="tricolor-static-text">
+      This is a clock that shows the time of Bharat
     </h2>
-
+  );
 }
 
 export default BelowText;
