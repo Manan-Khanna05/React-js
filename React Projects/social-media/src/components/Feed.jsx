@@ -1,21 +1,30 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import CreatePost from "./CreatePost";
 import Post from "./Post";
 
 const Feed = ({ user }) => {
-  const [posts, setPosts] = useState([
-    // Example initial post
-    {
-      id: 1,
-      author: "Demo User",
-      avatar: "https://i.pravatar.cc/40?img=1",
-      content: "Welcome to the social media app!",
-      likes: 0,
-      comments: [],
-      timestamp: new Date().toLocaleString(),
-    },
-  ]);
+  const [posts, setPosts] = useState(() => {
+    const savedPosts = localStorage.getItem("posts");
+    return savedPosts
+      ? JSON.parse(savedPosts)
+      : [
+          {
+            id: 1,
+            author: "Demo User",
+            avatar: "https://i.pravatar.cc/40?img=1",
+            content: "Welcome to the social media app!",
+            likes: 0,
+            likedBy: [],
+            comments: [],
+            timestamp: new Date().toLocaleString(),
+          },
+        ];
+  });
   const [toast, setToast] = useState("");
+
+  useEffect(() => {
+    localStorage.setItem("posts", JSON.stringify(posts));
+  }, [posts]);
 
   const addPost = (content) => {
     setPosts([
@@ -25,6 +34,7 @@ const Feed = ({ user }) => {
         avatar: user.avatar,
         content,
         likes: 0,
+        likedBy: [],
         comments: [],
         timestamp: new Date().toLocaleString(),
       },
@@ -36,12 +46,22 @@ const Feed = ({ user }) => {
 
   const likePost = (id) => {
     setPosts(
-      posts.map((post) =>
-        post.id === id ? { ...post, likes: post.likes + 1, liked: true } : post
-      )
+      posts.map((post) => {
+        if (post.id === id) {
+          if (post.likedBy && post.likedBy.includes(user.name)) {
+            setToast("You already liked this post!");
+            setTimeout(() => setToast(""), 1500);
+            return post;
+          }
+          return {
+            ...post,
+            likes: post.likes + 1,
+            likedBy: [...(post.likedBy || []), user.name],
+          };
+        }
+        return post;
+      })
     );
-    setToast("You liked a post!");
-    setTimeout(() => setToast(""), 1500);
   };
 
   const addComment = (id, comment) => {

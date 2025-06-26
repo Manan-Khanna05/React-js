@@ -37,7 +37,8 @@ const Post = ({ post, onLike, onComment, user, className }) => {
         <button
           ref={likeBtnRef}
           className={`btn btn-outline-primary btn-sm me-2`}
-          onClick={handleLike}>
+          onClick={handleLike}
+          disabled={post.likedBy && post.likedBy.includes(user.name)}>
           <i className="bi bi-hand-thumbs-up"></i> Like ({post.likes})
         </button>
       </div>
