@@ -57,3 +57,8 @@
 body {
   background: #f5f6fa;
 }
+
+.fade-out {
+  opacity: 0 !important;
+  transition: opacity 0.4s;
+}
