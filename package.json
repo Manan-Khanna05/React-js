@@ -1,6 +1,8 @@
 {
   "dependencies": {
+    "@reduxjs/toolkit": "^2.8.2",
     "bootstrap": "^5.3.7",
+    "cors": "^2.8.5",
     "react-icons": "^5.5.0"
   }
 }

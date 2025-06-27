@@ -1,0 +1,57 @@
+body,
+#root,
+.app-bg {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.counter-animate {
+  display: inline-block;
+  transition: transform 0.2s cubic-bezier(0.68, -0.55, 0.27, 1.55), color 0.2s;
+}
+
+.counter-animate.bump {
+  transform: scale(1.2) rotate(-2deg);
+  color: #fff700;
+}
+
+.counter-container {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  padding: 2rem 3rem;
+  margin: 2rem auto;
+  max-width: 350px;
+}
+
+button {
+  font-size: 1.2rem;
+  font-weight: 600;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: background 0.2s, transform 0.1s;
+}
+
+button:active {
+  transform: scale(0.95);
+}

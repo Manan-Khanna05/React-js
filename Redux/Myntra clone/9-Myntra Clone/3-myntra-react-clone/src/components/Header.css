@@ -1,0 +1,123 @@
+.header {
+  display: flex;
+  align-items: center;
+  background: linear-gradient(270deg, #ff3f6c, #ffb300, #ff3f6c, #ffb300);
+  background-size: 400% 400%;
+  animation: gradientBG 10s ease infinite;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.logo {
+  height: 40px;
+  margin-right: 2rem;
+  background: rgba(255, 255, 255, 0.25);
+  padding: 6px 14px;
+  border-radius: 14px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
+  transition: box-shadow 0.3s, background 0.3s;
+}
+.logo:hover {
+  box-shadow: 0 8px 32px rgba(255, 63, 108, 0.18);
+  background: rgba(255, 255, 255, 0.35);
+}
+
+nav {
+  display: flex;
+  gap: 1.5rem;
+}
+.nav-link {
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  position: relative;
+  transition: color 0.2s;
+}
+.nav-link::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #fff;
+  transition: width 0.3s;
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+}
+.nav-link:hover {
+  color: #fff700;
+}
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.search_bar {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 18px;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+  padding: 0.25rem 1.2rem;
+  margin: 0 2rem;
+  min-width: 340px;
+  max-width: 420px;
+  width: 100%;
+  border: 1.5px solid #eee;
+  position: relative;
+  transition: box-shadow 0.3s, background 0.3s;
+}
+
+.search_bar:focus-within {
+  background: #fff;
+  box-shadow: 0 4px 24px rgba(255, 63, 108, 0.1);
+  border: 1.5px solid #ff3f6c;
+}
+
+.search_icon {
+  color: #ff3f6c;
+  font-size: 1.3rem;
+  margin-right: 0.7rem;
+  opacity: 0.85;
+  background: none;
+  border-radius: 50%;
+  padding: 0.2rem;
+  flex-shrink: 0;
+}
+
+.search_input {
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 1.1rem;
+  color: #222;
+  width: 100%;
+  padding: 0.5rem 0;
+  font-family: inherit;
+  letter-spacing: 0.01em;
+  transition: color 0.2s;
+}
+
+.search_input::placeholder {
+  color: #888;
+  opacity: 1;
+  font-size: 1rem;
+  font-weight: 500;
+}
